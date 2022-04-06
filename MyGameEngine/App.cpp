@@ -95,6 +95,11 @@ void StartApp(const TCHAR* appName)
     InitWindow(appName);
 
     // 後でここで描画基盤や3Dモデルの初期化を行う
+    g_Engine = new Engine();
+    if (!g_Engine->Init(g_hWnd, WINDOW_WIDTH, WINDOW_HEIGHT))
+    {
+        return;
+    }
 
     // メイン処理ループ
     MainLoop();
